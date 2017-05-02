@@ -77,6 +77,12 @@
     JSON.stringify(new Date(2006, 0, 2, 15, 4, 5)) 
     // '"2006-01-02T15:04:05.000Z"'
 
+    var myJSON = JSON.stringify(undefined)
+    console.log(myJSON)
+    var myJSON = JSON.stringify(function(){})
+    console.log(myJSON)
+    //result undefined
+
     var obj = { "name":"John", "age":30, "city":"New York"}//đây là 1 json object
     //Use the JavaScript function JSON.stringify() to convert it into a string.
     var text = JSON.stringify(obj)
