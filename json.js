@@ -19,11 +19,11 @@
       { "middlename":null }//Values in JSON can be null.
       
       JSON Object
-      Các đối tượng JSON được bao quanh bởi các dấu ngoặc nhọn {}
-      Đối tượng JSON được viết bằng các cặp key / value.
-      keys phải là string, values phải 1 một trong JSON Data Types
-      Keys và values phân cách với nhau bởi dấu :
-      mỗi cặp keys/values phân cách với nhau bởi dấu ,
+      //Các đối tượng JSON được bao quanh bởi các dấu ngoặc nhọn {}
+      //Đối tượng JSON được viết bằng các cặp key / value.
+      //keys phải là string, values phải 1 một trong JSON Data Types
+      //Keys và values phân cách với nhau bởi dấu :
+      //mỗi cặp keys/values phân cách với nhau bởi dấu ,
         
       { "name":"John", "age":30, "car":null }
       
@@ -63,6 +63,9 @@
 
 
 ##4. JSON.stringify()
+
+    syntax JSON.stringify(value[, replacer[, space]])
+
     JSON.stringify({});                  // '{}'
     JSON.stringify(true);                // 'true'
     JSON.stringify('foo');               // '"foo"'
@@ -103,4 +106,31 @@
     var obj = { "name":"John", "age":function () {return 30;}, "city":"New York"};
     var myJSON = JSON.stringify(obj);
     console.log(myJSON)// result {"name":"John","city":"New York"}
+
+
+    var foo = {foundation: 'Mozilla', model: 'box', week: 45, transport: 'car', month: 7};
+    function replacer(key, value) {
+      // Filtering out properties
+      if (typeof value === 'string') {
+        return undefined;
+      }
+      return value;
+    }
+
+var toText = JSON.stringify(foo, replacer);
+console.log(toText)// '{"week":45,"month":7}'
+
+
+JSON.stringify({ a: 2 }, null, ' ');
+// '{
+//  "a": 2
+// }'
+
+
+JSON.stringify({ uno: 1, dos: 2 }, null, '\t');
+// returns the string:
+// '{
+//     "uno": 1,
+//     "dos": 2
+// }'
 
