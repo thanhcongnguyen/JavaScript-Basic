@@ -1,4 +1,5 @@
 #window.location.___
+
 ##1 href
 ##2 protocol
 ##3 host
